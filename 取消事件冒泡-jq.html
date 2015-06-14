@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{height:300px;width:300px;background:#05B2D2}
+    </style>
+    <script src="jquery-1.7.2.js"></script>
+    <script>
+        $(function(){
+            $('#box').click(function(){
+                alert('box');
+            });
+            $('#btn').click(function(ev){
+                alert('btn');
+
+//                return false;//jq中return false 能阻止默认事件也能阻止冒泡。
+                ev.stopPropagation();   //用stopPropagation阻止事件冒泡。
+            });
+
+            $(document).contextmenu(function(ev){
+                alert('aa');
+//                return false
+                ev.preventDefault();
+            });
+
+        })
+    </script>
+</head>
+<body>
+<div id="box">
+    <input type="button" value="按钮" id="btn">
+</div>
+</body>
+</html>
